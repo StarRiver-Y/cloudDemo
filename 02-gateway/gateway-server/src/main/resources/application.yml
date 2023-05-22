@@ -1,0 +1,25 @@
+server:
+  port: 80 #\u7F51\u5173\u4E00\u822C80
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      enabled: true #\u52A0\u4E86\u4F9D\u8D56 \u9ED8\u8BA4\u5F00\u542F
+      discovery:
+        locator:
+          enabled: true #\u5F00\u542F\u52A8\u6001\u8DEF\u7531 \u5F00\u542F\u901A\u8FC7\u5E94\u7528\u540D\u79F0\u627E\u5230\u670D\u52A1\u7684\u529F\u80FD
+          lower-case-service-id: true #\u5F00\u542F\u670D\u52A1\u540D\u79F0\u5C0F\u5199
+#      routes:
+#        - id: login-service-route #\u8DEF\u7531id \u552F\u4E00\u5373\u53EF
+#          uri: http://localhost:8081 #uri\u7EDF\u4E00\u8D44\u6E90\u5B9A\u4F4D\u7B26 url\u7EDF\u4E00\u8D44\u6E90\u6807\u8BC6\u7B26
+#          predicates:
+#            - Path=/login #\u5339\u914D\u89C4\u5219
+eureka:
+  client:
+    service-url:
+      defaulZone: http://localhost:8761/eureka
+    registry-fetch-interval-seconds: 3 # \u7F51\u5173\u62C9\u53D6\u670D\u52A1\u5217\u8868\u65F6\u95F4\u7F29\u77ED
+  instance:
+    hostname: localhost
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
