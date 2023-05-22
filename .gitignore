@@ -1,3 +1,4 @@
 # Project exclude paths
 /01-eureka/eureka-client-1/target/
 /01-eureka/eureka-server/target/
+.idea
