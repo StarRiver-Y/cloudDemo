@@ -8,10 +8,14 @@ import java.util.UUID;
 @RestController
 public class LoginController {
 
+    /*
+    测试
+     */
     @GetMapping("login")
     public String login(String name,String pwd){
         System.out.println(name+pwd);
         String token = UUID.randomUUID().toString();
         return token;
+
     }
 }
